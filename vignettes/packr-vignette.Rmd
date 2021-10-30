@@ -29,7 +29,6 @@ This vignette illustrate the use of the dataset and utility functions included i
 Load the packages used in this vignette:
 ```{r setup}
 library(packr)
-library(tidyverse)
 ```
 
 ## Loading the data
@@ -51,24 +50,28 @@ The data frame consists of 10 variables. The variable definitions can be consult
 
 ## Are population and oil consumption related?
 
-The dataframe includes information on population, GDP per capita, energy consumption, and emissions for world countries. The consumption of energy (in barrels per day) is for the country. We can plot these two variables to see if there is a trend. We use `ggplot2` to create a plot and the geometric object _points_ (`geom_points`) to create a scatterplot, with aesthetic values `x = Population` and `y = bblpd`, so that the values of population are mapped to the x-axis, and the values of energy consumption are mapped to the y-axis:
+The dataframe includes information on population, GDP per capita, energy consumption, and emissions for world countries. The consumption of energy (in barrels per day) is for the country. We can plot these two variables to see if there is a trend. We create a scatterplot with `x = Population` and `y = bblpd`, so that the values of population are mapped to the x-axis, and the values of energy consumption are mapped to the y-axis:
 ```{r energy-by-population}
-ggplot(data = energy_and_emissions, aes(x = Population, y = bblpd)) +
-  geom_point()
+# Simple Scatterplot
+plot(energy_and_emissions$Population,
+     energy_and_emissions$bblpd, 
+     main="Scatterplot Example",
+     xlab="Population ", 
+     ylab="Barrels of oil per day ", 
+     pch=19)
 ```
 
 Not suprisingly, there is a strong association between these two variables, since countries with big populations will consume more energy than small countries with small populations. This is not very informative, because the underlying relationship is simply size. 
 
 ## What is the per capita consumption of oil by country?
 
-Instead of exploring energy consumption by population, we will look at energy consumption per capita. This is a more informative variable, because it normalizes by size, and potentially can tell us something about the _intensity_ and/or _efficiency_ of energy use. However, energy consumption per capita is not one of the variables in the dataset. We need to divide the variable `bblpd` by `Population`. Use `dplyr::mutate()` to add this variable to the dataframe:
+Instead of exploring energy consumption by population, we will look at energy consumption per capita. This is a more informative variable, because it normalizes by size, and potentially can tell us something about the _intensity_ and/or _efficiency_ of energy use. However, energy consumption per capita is not one of the variables in the dataset. We need to divide the variable `bblpd` by `Population` to add this variable to the dataframe:
 ```{r energy-per-capita}
-energy_and_emissions <- energy_and_emissions %>%
-  mutate(EPC = bblpd/Population)
+energy_and_emissions$EPC <- energy_and_emissions$bblpd/energy_and_emissions$Population
 ```
 
 Check the descriptive statistics of `EPC` (energy consumption in barrels per day per person):
-```{r}
+```{r summary-epc}
 summary(energy_and_emissions$EPC)
 ```
 
@@ -82,9 +85,13 @@ The country with the highest per capita oil consumption in the world according t
 ## Are GDP per capita and energy consumption per capita related?
 
 To answer this question, we can create a scatterplot of the two variables:
-```{r}
-ggplot(data = energy_and_emissions, aes(x = GDPPC, y = EPC)) +
-  geom_point()
+```{r scatterplot-gdppc-epc}
+plot(energy_and_emissions$GDPPC, 
+     energy_and_emissions$EPC, 
+     main="Scatterplot Example",
+     xlab="GDP per capita ", 
+     ylab="Energy consumption per capita (bbpd/population) ", 
+     pch=19)
 ```
 
 Calculate the correlation between these two variables:
