@@ -11,7 +11,7 @@ NULL
 #'
 #' This package is an exercise in package creation using
 #' R studio. The package includes a sample function and
-#' a sample dataset with their respective documentation.
+#' a sample data set with their respective documentation.
 #'
 #' @docType package
 #' @name packr-package
