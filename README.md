@@ -79,3 +79,5 @@ x^2 + y^2 = z^2
 ](https://latex.codecogs.com/png.latex?%0Ax%5E2%20%2B%20y%5E2%20%3D%20z%5E2%0A "
 x^2 + y^2 = z^2
 ")
+
+Trying github pages now.
