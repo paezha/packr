@@ -1,8 +1,6 @@
 #' @keywords internal
 "_PACKAGE"
 
-# The following block is used by usethis to automatically manage
-# roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 ## usethis namespace: end
 NULL
@@ -13,11 +11,9 @@ NULL
 #' R studio. The package includes a sample function and
 #' a sample data set with their respective documentation.
 #'
-#' @docType package
 #' @name packr-package
 #' @author Antonio Paez, School of Earth, Environment and Society, McMaster University \email{paezha@@mcmaster.ca}
 #' @references \url{https://github.com/paezha/packr}
-NULL
 
 #' Energy and emissions data for world countries.
 #'
@@ -51,4 +47,3 @@ NULL
 #' @examples
 #'  data(energy_and_emissions)
 #'  GDPPC <- energy_and_emissions$GDPPC
-"energy_and_emissions"

@@ -7,18 +7,12 @@
 \title{packr: A Minimal Example of Package Creation}
 \description{
 An example of a minimal package.
-
-This package is an exercise in package creation using
-R studio. The package includes a sample function and
-a sample data set with their respective documentation.
-}
-\references{
-\url{https://github.com/paezha/packr}
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/paezha/packr}
+  \item \url{https://paezha.github.io/packr/}
   \item Report bugs at \url{https://github.com/paezha/packr/issues}
 }
 
@@ -26,7 +20,5 @@ Useful links:
 \author{
 \strong{Maintainer}: Antonio Paez \email{paezha@mcmaster.ca} (\href{https://orcid.org/0000-0001-6912-9919}{ORCID})
 
-
-Antonio Paez, School of Earth, Environment and Society, McMaster University \email{paezha@mcmaster.ca}
 }
 \keyword{internal}
